@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class playerMovement : MonoBehaviour
@@ -8,6 +9,9 @@ public class playerMovement : MonoBehaviour
     public float jumpForce = 5;
     public float floorDistance = 1.5f;
     private bool grounded;
+
+    public int points = 0;
+    public TextMeshProUGUI scoreText;
 
     private Transform camera;
     public Rigidbody rb;
@@ -70,7 +74,7 @@ public class playerMovement : MonoBehaviour
             capsule.localScale = Vector3.one;
         }
 
-
+        scoreText.text = "Points: " + points;
 
     }
 
