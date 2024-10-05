@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 409359cef662bdc4193f155d00aba766, type: 3}
+  m_Name: 3Tank1
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 877044088491457887, guid: 82963bb9ffa1f804f9816d1eb6a0f0c3, type: 3}
+  amount: 3
+  timeBetween: 0.1
