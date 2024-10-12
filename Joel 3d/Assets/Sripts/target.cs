@@ -30,6 +30,7 @@ public class target : MonoBehaviour, IDamageable
     public void Die() 
     {
         playerMovement.instance.points += 1;
+        WaveSpawner.instance.enemiesAlive--;
         Destroy(gameObject);
 
     } 
