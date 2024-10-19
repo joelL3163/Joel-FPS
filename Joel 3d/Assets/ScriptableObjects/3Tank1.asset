@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 409359cef662bdc4193f155d00aba766, type: 3}
   m_Name: 3Tank1
   m_EditorClassIdentifier: 
-  prefab: {fileID: 877044088491457887, guid: 82963bb9ffa1f804f9816d1eb6a0f0c3, type: 3}
+  prefab: {fileID: 7663123979039914940, guid: 52e69ee3dc0308d4d831d955301f36ba, type: 3}
   amount: 3
   timeBetween: 0.1

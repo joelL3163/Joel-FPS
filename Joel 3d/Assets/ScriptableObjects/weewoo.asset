@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: weewoo
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 11400000, guid: ca1ea554febe47647b026a0e1232600e, type: 2}
   - {fileID: 11400000, guid: 2a20edc874b4d704bb86d40f91bc888b, type: 2}
