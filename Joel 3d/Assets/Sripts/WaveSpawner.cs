@@ -100,6 +100,7 @@ public class WaveSpawner : MonoBehaviour
         yield return new WaitForSecondsRealtime(seconds);
         currentWaveIndex++;
         currentEnemyIndex = 0;
+        currentEnemyCount = 0;
         getCurrentEnemy();
         running = true;
     }

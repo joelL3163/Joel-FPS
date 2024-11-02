@@ -14,7 +14,9 @@ public class EnemyMovementRanged : MonoBehaviour
     public float fireRate;
     private float timer;
     public float offset;
+    private int direction = 1;
     public Rigidbody rb;
+    public LayerMask obstacleLayer;
     private playerMovement player;
     public GameObject bulletPrefab;
 
@@ -48,11 +50,17 @@ public class EnemyMovementRanged : MonoBehaviour
                 Instantiate(bulletPrefab, transform);
             }
 
+            Debug.DrawRay(transform.position + transform.forward * this.direction, transform.forward * this.direction * 1f);
+            if(Physics.Raycast(transform.position + transform.forward * this.direction,transform.forward*this.direction, 1f, obstacleLayer))
+            {
+                Debug.Log("Flipped Direction");
+                this.direction *= -1;
+            }
 
-            speed += acceleration * transform.forward;
+            speed += acceleration * transform.forward * this.direction;
             if (speed.magnitude >= maxSpeed)
             {
-                speed = maxSpeed * transform.forward;
+                speed = maxSpeed * transform.forward * this.direction;
             }
 
 
