@@ -7,7 +7,9 @@ public class EnemyProjectile : MonoBehaviour
 
     public float speed;
     private Transform enemy;
-
+    private float timeAlive;
+    public float lifetime = 10;
+    public float damage = 1;
     public Rigidbody rb;
     // Start is called before the first frame update
 
@@ -25,5 +27,20 @@ public class EnemyProjectile : MonoBehaviour
     void Update()
     {
         rb.velocity = transform.forward * speed;
+        timeAlive += Time.deltaTime;
+        if (timeAlive > lifetime)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        PlayerHealth player = other.gameObject.GetComponent<PlayerHealth>();
+        if (player != null)
+        {
+            player.Hit(damage);
+            Destroy(gameObject);
+        }
     }
 }

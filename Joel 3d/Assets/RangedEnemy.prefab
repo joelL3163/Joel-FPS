@@ -306,6 +306,7 @@ MonoBehaviour:
   maxSpeed: 15
   playerRadius: 30
   fireRate: 4
+  offset: 0
   rb: {fileID: 7841887414975620552}
   bulletPrefab: {fileID: 4082042838607043290, guid: f6463da4f2b1b914da9df9782d9193f5, type: 3}
 --- !u!114 &6856768811806102501

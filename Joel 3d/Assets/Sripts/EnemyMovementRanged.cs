@@ -13,6 +13,7 @@ public class EnemyMovementRanged : MonoBehaviour
     public float playerRadius;
     public float fireRate;
     private float timer;
+    public float offset;
     public Rigidbody rb;
     private playerMovement player;
     public GameObject bulletPrefab;
@@ -31,9 +32,9 @@ public class EnemyMovementRanged : MonoBehaviour
 
 
         float angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg - 90;
-        float verticalAngle = -1*(Mathf.Atan2((transform.position.y - player.transform.position.y - 1), distanceFromPlayer) * Mathf.Rad2Deg);
+        float verticalAngle = -1*(Mathf.Atan2((transform.position.y - player.transform.position.y - offset), distanceFromPlayer) * Mathf.Rad2Deg);
 
-        Debug.Log("Enemy" + direction);
+        //Debug.Log("Enemy" + direction);
         transform.eulerAngles = new Vector3(0, angle, verticalAngle);
 
 

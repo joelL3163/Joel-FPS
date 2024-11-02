@@ -51,7 +51,7 @@ public class playerMovement : MonoBehaviour
 
         rb.velocity = camera.right*xInput*_speed + new Vector3(camera.forward.x,0,camera.forward.z).normalized * yInput * _speed + Vector3.up * rb.velocity.y;
 
-        Debug.Log("Player" + rb.velocity);
+        //Debug.Log("Player" + rb.velocity);
 
         GroundedCheck();
 

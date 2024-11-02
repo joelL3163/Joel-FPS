@@ -5,13 +5,8 @@ using UnityEngine;
 public interface IDamageable
 {
 
-    public void Hit(float damage)
-    {
+    public void Hit(float damage);
 
-    }
+    public void Die();
 
-    public void Die()
-    {
-
-    }
 }
