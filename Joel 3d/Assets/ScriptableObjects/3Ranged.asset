@@ -15,3 +15,4 @@ MonoBehaviour:
   prefab: {fileID: 7663123979039914940, guid: 52e69ee3dc0308d4d831d955301f36ba, type: 3}
   amount: 3
   timeBetween: 0.1
+  cost: 200

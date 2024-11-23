@@ -8,6 +8,8 @@ public class EnemyScriptableObject : ScriptableObject
     public GameObject prefab;
     public int amount;
     public float timeBetween;
+    public int cost;
+
 
 
 

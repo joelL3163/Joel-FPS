@@ -14,7 +14,7 @@ TagManager:
   - target
   - ground
   - obstacle
-  - 
+  - EnemyCollider
   - 
   - 
   - 

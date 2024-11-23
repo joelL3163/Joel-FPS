@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 409359cef662bdc4193f155d00aba766, type: 3}
-  m_Name: 10Regular2
+  m_Name: 5Regular
   m_EditorClassIdentifier: 
   prefab: {fileID: 3618409758824143503, guid: bd50be26710be774189d63f51f50ba78, type: 3}
-  amount: 10
+  amount: 5
   timeBetween: 0.2
+  cost: 100
