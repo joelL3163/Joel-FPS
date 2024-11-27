@@ -3,10 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[CreateAssetMenu(fileName = "Wave", menuName = "Wave System/Wave")]
-public class WaveScriptableObject : ScriptableObject
+
+public class WaveScriptableObject
 {
     public List<EnemyScriptableObject> enemies;
+
+    public WaveScriptableObject(List<EnemyScriptableObject> _enemies)
+    {
+        enemies = _enemies;
+    }
 }
 
 

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -13,13 +14,16 @@ public class WaveSpawner : MonoBehaviour
 
     // Wave spawning
     public List<WaveScriptableObject> waves;
-    private int currentWaveIndex = 0, currentEnemyIndex = 0, currentEnemyCount = 0;
+    private int currentEnemyIndex = 0, currentEnemyCount = 0;
     public int enemiesAlive = 0;
+    public Vector3 spawnPosition;
     private bool running;
+    public WaveScriptableObject currentWave;
     private EnemyScriptableObject currentEnemy;
     public GameObject upgradeMenu;
+    public Vector3 cube;
 
-    
+
 
     // Start is called before the first frame update
     private void Awake()
@@ -33,11 +37,6 @@ public class WaveSpawner : MonoBehaviour
         }
     }
 
-    void Start()
-    {
-        running = true;
-        getCurrentEnemy();
-    }
 
     // Update is called once per frame
     void Update()
@@ -49,7 +48,7 @@ public class WaveSpawner : MonoBehaviour
         time += Time.deltaTime;
         if (time > currentEnemy.timeBetween)
         {
-            Instantiate(currentEnemy.prefab);
+            Instantiate(currentEnemy.prefab, spawnPosition, Quaternion.identity);
             enemiesAlive++;
             currentEnemyCount++;
             time = 0;
@@ -57,22 +56,24 @@ public class WaveSpawner : MonoBehaviour
         if (currentEnemyCount >= currentEnemy.amount)
         {
             Debug.Log("Enemy Count reached: " + currentEnemy);
-            if(currentEnemyIndex == waves[currentWaveIndex].enemies.Count -1)
+            if(currentEnemyIndex == currentWave.enemies.Count -1)
             {
                 //stops when it is the last wave
 
                 Debug.Log("Last Enemy in wave: ");
-                if (currentWaveIndex == waves.Count - 1)
+               /* if (currentWaveIndex == waves.Count - 1)
                 {
                     Debug.Log("last wave completed");
                     this.enabled = false;
-                }
+                }*/
+
                 // Go to next wave when last enemy
-                else
+                /*else
                 {
                     StartCoroutine(WaitForNextWave(waitTime));
                     
-                }
+                }*/
+                StartCoroutine(WaitForNextWave(waitTime));
             }
             else 
             {
@@ -98,14 +99,34 @@ public class WaveSpawner : MonoBehaviour
             yield return null;
         }
         yield return new WaitForSecondsRealtime(seconds);
-        currentWaveIndex++;
         currentEnemyIndex = 0;
         currentEnemyCount = 0;
-        getCurrentEnemy();
-        running = true;
+        WaveDirector.instance.purchaseNext();
     }
     private void getCurrentEnemy()
     {
-        currentEnemy = waves[currentWaveIndex].enemies[currentEnemyIndex];
+        currentEnemy = currentWave.enemies[currentEnemyIndex];
+        spawnPosition = transform.position + new Vector3(Random.Range(-cube.x/2,cube.x/2), Random.Range(-cube.y / 2, cube.y / 2), Random.Range(-cube.z / 2, cube.z / 2));
     }
+
+    public void spawnWave(WaveScriptableObject wave)
+    {
+        currentWave = wave;
+        running = true;
+        getCurrentEnemy();
+
+
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.white;
+        Gizmos.DrawCube(transform.position, cube);
+    }
+
+
+
 }
+
+
+    

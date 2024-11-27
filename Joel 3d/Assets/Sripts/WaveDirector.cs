@@ -13,6 +13,7 @@ public class WaveDirector : MonoBehaviour
     public int baseCredits;
     public int creditsPerWave;
     public static WaveDirector instance;
+    
 
     private void Awake()
     {
@@ -28,7 +29,7 @@ public class WaveDirector : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PurchaseWave();
+        WaveSpawner.instance.spawnWave(PurchaseWave());
     }
 
     // Update is called once per frame
@@ -37,7 +38,7 @@ public class WaveDirector : MonoBehaviour
         
     }
 
-    void PurchaseWave ()
+    WaveScriptableObject PurchaseWave ()
     {
         credits = baseCredits+(waveNumber * creditsPerWave);
         List<EnemyScriptableObject> boughtEnemies = new List<EnemyScriptableObject>();
@@ -63,5 +64,14 @@ public class WaveDirector : MonoBehaviour
             credits -= affordable[randomIndex].cost;
         }
         boughtList = boughtEnemies;
+
+        WaveScriptableObject enemies = new WaveScriptableObject(boughtEnemies);
+        return enemies;
+    }
+
+    public void purchaseNext()
+    {
+        waveNumber++;
+        WaveSpawner.instance.spawnWave(PurchaseWave());
     }
 }

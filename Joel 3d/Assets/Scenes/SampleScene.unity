@@ -516,7 +516,7 @@ Transform:
   m_GameObject: {fileID: 336142207}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.152209, y: 2.574001, z: 6.761148}
+  m_LocalPosition: {x: 6.5, y: 2.5, z: 18}
   m_LocalScale: {x: 1, y: 1.5813, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -535,10 +535,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waitTime: 3
-  waves:
-  - {fileID: 11400000, guid: dc37de32d71d2f946938f9d5c25dd035, type: 2}
   enemiesAlive: 0
+  spawnPosition: {x: 0, y: 0, z: 0}
   upgradeMenu: {fileID: 1547116521}
+  cube: {x: 60, y: 5, z: 80}
 --- !u!1001 &569975740
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1093,7 +1093,7 @@ Transform:
   m_GameObject: {fileID: 807028921}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1.2, y: 0, z: 2.7}
   m_LocalScale: {x: 30, y: 30, z: 30}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2616,9 +2616,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ca1ea554febe47647b026a0e1232600e, type: 2}
   boughtList: []
   credits: 0
-  waveNumber: 14
-  baseCredits: 500
-  creditsPerWave: 317
+  waveNumber: 0
+  baseCredits: 100
+  creditsPerWave: 1500
 --- !u!4 &1712618353
 Transform:
   m_ObjectHideFlags: 0
