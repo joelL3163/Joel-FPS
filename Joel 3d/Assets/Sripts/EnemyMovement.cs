@@ -35,7 +35,7 @@ public class EnemyMovement : MonoBehaviour
 
 
         float angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg - 90;
-        Debug.Log("Enemy" + direction);
+        //Debug.Log("Enemy" + direction);
         transform.eulerAngles = new Vector3(0,angle,0);
         
     }

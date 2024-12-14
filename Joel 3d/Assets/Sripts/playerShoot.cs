@@ -8,6 +8,7 @@ public class playerShoot : MonoBehaviour
     public Transform camera;
     public LayerMask targetLayer;
     public float damage = 1;
+    public ParticleSystem particles;
     void Start()
     {
         
@@ -18,12 +19,23 @@ public class playerShoot : MonoBehaviour
     {
         if (Input.GetMouseButton(0))
         {
+            
             Debug.Log(Physics.Raycast(camera.position, camera.forward, targetLayer));
             if(Physics.Raycast(camera.position, camera.forward, out RaycastHit hit, 1000f, targetLayer))
             {
                 hit.transform?.GetComponent<IDamageable>().Hit(damage);
                
             }
+
+        }
+        if (Input.GetMouseButtonDown(0))
+        {
+            particles.Play();
+
+        }
+        if(Input.GetMouseButtonUp(0))
+        {
+            particles.Stop();
         }
 
     }
