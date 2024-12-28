@@ -1,0 +1,125 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        boolean carryOne = false;
+        ListNode node;
+        ListNode currentNode;
+
+        if(l1.val + l2.val >= 10){
+            node = new ListNode(l1.val+l2.val - 10);
+            carryOne = true;
+        }
+        else
+        {
+            node = new ListNode(l1.val+l2.val);
+        }
+        
+        currentNode = node;
+        
+
+
+        while(true){
+
+            int l1val;
+            int l2val;
+
+            if(l1.next == null){
+                l1val = 0;
+            } else {
+                l1val = l1.next.val;
+                l1 = l1.next;
+            }
+            if(l2.next == null){
+                l2val = 0;
+            } else {
+                l2val = l2.next.val;
+                l2 = l2.next;
+            }
+
+            // l1 = l1.next;
+            // l2 = l2.next;
+            
+            int sum = l1val + l2val;
+            if(sum == 0 && !carryOne && l1.next == null && l2.next == null)
+            {
+                break;
+            }
+
+            if(carryOne){
+                sum++;
+                carryOne = false;
+            }
+
+
+
+            if(sum >= 10){
+                carryOne = true;
+                sum -= 10;
+            }
+
+            currentNode.next = new ListNode(sum);
+            currentNode = currentNode.next;
+        }
+        return node;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+        /*
+        
+        int counter = 0;
+        long total1 = 0;
+        long total2 = 0;
+        long total = 0;
+
+
+        while(l1 != null){
+            total1 += l1.val * (long) Math.pow(10,counter);
+            l1 = l1.next;
+            counter++;
+            System.out.println("l1 current val" + total1);
+
+        }
+        counter = 0;
+        while(l2 != null){
+            total2 += l2.val * (long) Math.pow(10,counter);
+            l2 = l2.next;
+            counter++;
+            System.out.println("l2 current val" + total2);
+
+        }
+
+        System.out.println(total1);
+        System.out.println(total2);
+
+        total = total1 + total2;
+        ListNode node = new ListNode((int) (total%10));
+        ListNode prevNode = node;
+        total /= 10;
+        while(total > 0){
+            prevNode.next = new ListNode((int) (total%10));
+            prevNode = prevNode.next;
+            total /= 10;
+        }
+        return node;
+
+        */
